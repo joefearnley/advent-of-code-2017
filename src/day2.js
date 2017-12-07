@@ -13,6 +13,5 @@ exports.checksum = input => {
   console.log(smallestLarget);
 
   // for (let i = 0; i < rows.length; i++) {
-
   // }
 };

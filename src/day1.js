@@ -1,19 +1,16 @@
 exports.inverseCaptcha = input => {
   const arrInput = input.toString().split("");
-  let previous = arrInput[0];
+  const firstNumber = arrInput.shift();
+  const lastNumber = arrInput[arrInput.length - 1];
+  let previous = firstNumber;
   let result = 0;
 
-  arrInput.reduce(a, b => {
-    return a == b;
+  arrInput.forEach(number => {
+    result += previous === number ? parseInt(number) : 0;
+    previous = number;
   });
 
-  for (let i = 1; i < arrInput.length; i++) {
-    result += previous === arrInput[i] ? parseInt(arrInput[i]) : 0;
-    previous = arrInput[i];
-  }
-
-  const lastNumber = arrInput[arrInput.length - 1];
-  result += arrInput[0] === lastNumber ? parseInt(lastNumber) : 0;
+  result += firstNumber === lastNumber ? parseInt(lastNumber) : 0;
 
   return result;
 };
