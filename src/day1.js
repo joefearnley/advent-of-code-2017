@@ -14,3 +14,17 @@ exports.inverseCaptcha = input => {
 
   return result;
 };
+
+exports.inverseCaptcha2 = input => {
+  const arrInput = input.toString().split("");
+  let result = 0;
+  
+  for (let i = 0; i < arrInput.length; i++) {
+      let next = (i + (arrInput.length / 2)) % arrInput.length;
+      if (arrInput[i] == arrInput[next]) {
+          result += parseInt(arrInput[i]);
+      }
+  }
+
+  return result;
+};
