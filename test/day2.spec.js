@@ -13,7 +13,7 @@ describe("Day 2: Corruption Checksum - Part 1", () => {
   });
 });
 
-describe.only("Day 2: Corruption Checksum - Part 2", () => {
+describe("Day 2: Corruption Checksum - Part 2", () => {
   it("example input should have a checksum of 18", () => {
     const result = day2.checksum2("5 9 2 8\n9 4 7 3\n3 8 6 5");
     assert.equal(result, 9);

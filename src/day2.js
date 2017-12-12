@@ -1,10 +1,8 @@
 exports.checksum = input => {
   return input.split("\n").map(row => {
-    return row.split(" ").filter(number => {
-      return number !== "";
-    }).map(number => {
-      return parseInt(number);
-    });
+    return row.split(" ")
+      .filter(number => number !== "")
+      .map(number =>  parseInt(number));
   }).reduce((accumulator, row) => {
     let smallest = Math.min(...row);
     let largest = Math.max(...row);
@@ -13,18 +11,19 @@ exports.checksum = input => {
 };
 
 exports.checksum2 = input => {
-  return input.split("\n").map(row => {
+  return input.split("\n")
+    .map(row => {
       const numbers = row.split(" ");
       let checksum = 0;
-      for (let i = 0; i < numbers.length; i++) {
-        for (let j = 0; j < numbers.length; j++) {
-          let result = parseInt(numbers[i]) / parseInt(numbers[j]);
+      numbers.forEach(number => {
+        numbers.forEach(number2 => {
+          let result = parseInt(number) / parseInt(number2);
           if (Number.isInteger(result) && result !== 1) {
             checksum += result;
           }
-        }
-      }
-
+        });
+      });
       return checksum;
-  }, 0).reduce((a, b) => a + b, 0);
+  }, 0)
+  .reduce((a, b) => a + b, 0);
 };
