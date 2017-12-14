@@ -1,3 +1,2 @@
-exports.spiralMemory = input => {
-  return 0;
-};
+exports.spiralMemory = input => {};
+exports.spiralMemory2 = input => {};
